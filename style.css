@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*aqui eu estou resetando o css deixando tudo
+    no zero*/
+}
+
+ul {
+    list-style: none;
+    /*estou dizendo que não quero que apareça os pontinhos da lista que é normal aparecer*/
+}
+
+body {
+    background-image: url(./Fundo.jpg);
+    background-position: top center;
+    /*O top vai deixar minha imagem no toppo e o
+     center vai servir para conforme eu for aumentando ou diminuindo minha tela ele for se ajustando*/
+    background-size: 100%;
+    /*estou falando que ela fique 100% na minha orizontal*/
+    background-repeat: no-repeat;
+    /*No caso minha imagem estava se repetindo então básicamente estou dizendo que não quero que ela se repita.*/
+    background-color: hsl(240, 5%, 7%);
+}
+
+body * {
+    font-family: sans-serif;
+    line-height: 160%;
+    /*é a altura da minha linha*/
+}
+
+header {
+    padding-top: 32\px;
+    /*espaço entre minha foto e o topo da pagina*/
+    height: calc(120px +32px);
+
+
+}
+
+header div {
+    width: 120px;
+    margin: auto;
+    border-radius: 50%;
+    display: flex;
+
+    transition: transform .3s;
+}
+
+header div:hover {
+    transform: scale(1.1);
+    /*o hover serve pra que quando eu passar o mouse em cima da div ele vai passar o que estpa dentro do hover*/
+}
+
+header img {
+    width: 128px;
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, #9572fc, #43e7ad 50.25%, #e2d45c 100%);
+    padding: 4px;
+}
+
+main {
+    max-width: 580px;
+    /*minha largura maxima*/
+    width: 90%;
+    margin: 32px auto;
+    /*quando eu boto isso minha margin fica centralizada
+    então a largura maxima vai ficar centralizada.*/
+
+    display: grid;
+    /*vai me permiitir usar o gap sem eu ter que deixar tudo um do lado do outro*/
+    gap: 24px;
+    /*estou falando que quero que todas as minhas divs tenham um espapaço entre si*/
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572fc, #43e7ad 50.25%, #e2d45c 100%);
+    /*Faço isso pra minha borda ficar com multiplas cores*/
+    padding-top: 4px;
+    /*estou falando que o preenchimento superior dela seja de 4px, mas seu eu colocasse 10px ele ia ficar mais grosso*/
+    border-radius: 10px;
+}
+
+section ul li {
+    transition: transform .3s
+        /*é pra ser uma transicao*/
+    ;
+}
+
+section ul li:hover {
+    transform: scale(1.1);
+    /*é pra ser uma transicao*/
+}
+
+section div {
+    background-color: #2A2634;
+    /*aqui eu to falando que eu quero que todas as divs que estão dentro da minha
+    sessão sejam daquela determinha cor*/
+    padding: 32px;
+    /*faço isso pra dentro da minha sessao não ficar muito*/
+    padding-top: 24px;
+    border-radius: 8px;
+    /*quero que a borda da minha sessao fique um pouco redonda*/
+}
+
+section h2 {
+    letter-spacing: -0.47px;
+    /*espaço das letras*/
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+    /*espaço das letras e a cor dos meus paragráfods*/
+}
+
+section ul {
+    display: flex;
+    /* o flex ele vai fazer todos(vai mudar todos dentro de uma caixa, no caso UL)os elementos dentro da ul ficarem um do lado do outro
+    se fosse display: block seria todos um embaixo do outro*/
+    flex-wrap: wrap;
+    /*aqui eu estou falando que quando tiver mais conteúdos(jogos) na minha caixa eu quero
+    que ele empurre pra baixo e não pro lado.*/
+    gap: 16px;
+    /*Esse gap só funciona se eu tiver com o display flex. Ele vai serrvir pra mim ter espaçamento entre meus links */
+    margin-top: 24px;
+    /*espalo do topo*/
+}
+
+.game-list img {
+    /*como eu botei o IMG estou falando das minhas imagens*/
+    border-radius: 8px;
+    width: 90px;
+    /*estou falando que quero que as imagens da minha lista de games
+    seja de uma largura de 90px, ou seja, um pouco mais grande que a minha
+    lista de canais*/
+}
+
+.canais-list img {
+    border-radius: 50%;
+    width: 70px;
+    /*estou falando que quero que a imagem da minha lista de canais
+    seja de uma largura de 70px, ou seja, não tão grande*/
+}
+
+/* animation */
+
+header div {
+    animation: fromTop .7s .2s backwards;
+}
+
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main section {
+    animation: fromBottom .7s backwards;
+     /*para uma animação eu tenho que ter no minimo duas propriedades nela, o nome
+    que no caso é fromBottom e o tempo que ela vai executar que no caso é 7s
+    porém eu também posso ter um delay colocando .2s, ele automaticamente~
+    vai levar aquilo como delay*/
+}
+
+main section:nth-child(1) {
+    animation-delay: 0;
+    /*Desse jeito eu estou pegando uma sessão especifica e colocando algo na animação 
+    dela, no caso quando eu coloquei o nth-child e passei o numero 1, estou dizendo
+    que é minha sessão número 1. Em seguida passei o delay d e0*/
+}
+
+main section:nth-child(2) {
+    animation-delay: .4s;
+}
+
+main section:nth-child(3) {
+    animation-delay: .7s;
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /*Paara criar animações eu primeiramente tenho que colocar o keyframes e então
+    eu coloco um nome pra ela no caso, fromBottom. Coloco o from dizendo aonde ele vai
+    começar e o to dizendo aonde vai acabar*/
+}
